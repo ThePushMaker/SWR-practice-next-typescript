@@ -1,8 +1,9 @@
+import Old from "./components/Old";
 
 export default function Home() {
   return (
     <div>
-      Hello
+      <Old />
     </div>
   );
 }
