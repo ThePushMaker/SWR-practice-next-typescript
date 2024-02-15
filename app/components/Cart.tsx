@@ -1,12 +1,25 @@
 "use client";
-import { useCart } from "../services/queries"; 
+import { useCart, useUser } from "../services/queries"; 
 
 export default function Cart() {
+  const userQuery = useUser();
   const cartQuery = useCart();
   
   return (
     <div>
-      {cartQuery.data?.totalCost}
+      <p>
+        username:{" "} 
+        {userQuery.isLoading ? 'Loading...' : userQuery.data.userName}
+      </p>
+      <p>
+        total cart cost:{' '} 
+        {cartQuery.data 
+          ? cartQuery.data.totalCost 
+          : cartQuery.isLoading 
+          ? 'Loading...' 
+          : 'No User found!'}
+        {/* {cartQuery.data?.totalCost} */}
+      </p>
     </div>
   )
 }
