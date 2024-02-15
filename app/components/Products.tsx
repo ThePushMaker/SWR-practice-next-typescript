@@ -5,7 +5,7 @@ import { useProducts } from "../services/queries"
 import { useCreateProduct } from "../services/mutations";
 
 export default function Products () {
-  const {data} = useProducts();
+  const {data, isValidating} = useProducts();
   // const {data, mutate} = useProducts();
   const {trigger, isMutating} = useCreateProduct();
   
@@ -18,7 +18,12 @@ export default function Products () {
     // await axiosInstance.post('/products', {title: inputValue});
     // mutate();
     
-    trigger({ title: inputValue });
+    trigger({ title: inputValue }, 
+    {
+      optimisticData: data && [
+        ...data, { title: `${inputValue} (optimistic data)` }],
+      rollbackOnError: true,
+    });
   }
   
   return (
@@ -33,7 +38,12 @@ export default function Products () {
         value={inputValue}
         onChange={handleUpdateInputValue}
       />
-      <button onClick={handleCreateProduct}>Create</button>
+      <button 
+        onClick={handleCreateProduct} 
+        disabled={isMutating || isValidating}
+      >
+        {isMutating || isValidating ? 'Creating...' : 'Create Product'}
+      </button>
     </>
   )
 }
