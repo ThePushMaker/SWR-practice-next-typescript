@@ -4,7 +4,7 @@ import { useProducts } from "../services/queries"
 import { axiosInstance } from "../services/fetcher";
 
 export default function Products () {
-  const {data} = useProducts();
+  const {data, mutate} = useProducts();
   
   const [inputValue, setInputValue] = useState("");
   const handleUpdateInputValue = (e: ChangeEvent<HTMLInputElement>) => {
@@ -12,7 +12,8 @@ export default function Products () {
   }
   
   const handleCreateProduct = async() => {
-    await axiosInstance.post('/products', {title: inputValue})
+    await axiosInstance.post('/products', {title: inputValue});
+    mutate();
   }
   
   return (
