@@ -1,10 +1,13 @@
 "use client";
 import { useState } from "react";
 import { useProducts } from "../services/queries"
-import { axiosInstance } from "../services/fetcher";
+// import { axiosInstance } from "../services/fetcher";
+import { useCreateProduct } from "../services/mutations";
 
 export default function Products () {
-  const {data, mutate} = useProducts();
+  const {data} = useProducts();
+  // const {data, mutate} = useProducts();
+  const {trigger, isMutating} = useCreateProduct();
   
   const [inputValue, setInputValue] = useState("");
   const handleUpdateInputValue = (e: ChangeEvent<HTMLInputElement>) => {
@@ -12,8 +15,10 @@ export default function Products () {
   }
   
   const handleCreateProduct = async() => {
-    await axiosInstance.post('/products', {title: inputValue});
-    mutate();
+    // await axiosInstance.post('/products', {title: inputValue});
+    // mutate();
+    
+    trigger({ title: inputValue });
   }
   
   return (
