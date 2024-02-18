@@ -60,7 +60,11 @@
   },
   "cart": {
     "totalCost": "130$",
-    "products": ["hotdog", "pizza", "extra sauce"]
+    "products": [
+      "hotdog",
+      "pizza",
+      "extra sauce"
+    ]
   },
   "products": [
     {
@@ -138,6 +142,66 @@
     {
       "title": "phone14",
       "id": 19
+    },
+    {
+      "title": "microfono",
+      "id": 20
+    },
+    {
+      "title": "Camara",
+      "id": 21
+    },
+    {
+      "title": "Camara2",
+      "id": 22
+    },
+    {
+      "title": "Camara3",
+      "id": 23
+    },
+    {
+      "title": "phonex",
+      "id": 24
+    },
+    {
+      "title": "phone15",
+      "id": 25
+    },
+    {
+      "title": "phone16",
+      "id": 26
+    },
+    {
+      "title": "phone17",
+      "id": 27
+    },
+    {
+      "title": "zapato",
+      "id": 28
+    },
+    {
+      "title": "zapato2",
+      "id": 29
+    },
+    {
+      "title": "zapato3",
+      "id": 30
+    },
+    {
+      "title": "zapato4",
+      "id": 31
+    },
+    {
+      "title": "zapato5",
+      "id": 32
+    },
+    {
+      "title": "computa1",
+      "id": 33
+    },
+    {
+      "title": "computa2",
+      "id": 34
     }
   ],
   "posts": [
